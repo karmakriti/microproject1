@@ -8,7 +8,7 @@ async function loadFeaturedBooks() {
         display.innerHTML = featuredBooks.map(book => `
             <div class="col-md-4">
                 <div class="card book-card">
-                    <img src="images/book-covers/${book.id}.jpg" class="card-img-top" alt="${book.title}" onerror="this.src='images/default-book.jpg'">
+                    <img src="images/book.jpg" class="card-img-top" alt="${book.title}">
                     <div class="card-body">
                         <h5 class="card-title">${book.title}</h5>
                         <p class="card-text">By ${book.author}</p>

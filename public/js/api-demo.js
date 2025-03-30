@@ -19,6 +19,7 @@ document.getElementById('fetchBtn').addEventListener('click', async () => {
         displayDiv.innerHTML = data.books.map(book => `
             <div class="col-md-4 mb-4">
                 <div class="card book-card">
+                    <img src="images/book.jpg" class="card-img-top" alt="${book.title}">
                     <div class="card-header bg-primary text-white">
                         ID: ${book.id}
                     </div>
