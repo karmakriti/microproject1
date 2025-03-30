@@ -22,3 +22,10 @@ s
 "year": 1925,
 "genre": "Fiction"
 }npm start
+
+## How to Run the Project
+
+1. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
