@@ -1,14 +1,24 @@
 let allBooks = [];
 
-async function loadBooks() {
+async function loadBooks(searchTerm = '', genre = '') {
     try {
-        const response = await fetch('/api/books');
+        let url = '/api/books';
+        const params = new URLSearchParams();
+        if (searchTerm) params.append('search', searchTerm);
+        if (genre) params.append('genre', genre);
+        if (params.toString()) url += `?${params.toString()}`;
+
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('Network response was not ok');
+        
         const data = await response.json();
         allBooks = data.books;
         displayBooks(allBooks);
-        updateGenreFilter();
+        if (!genre) updateGenreFilter();
     } catch (error) {
         console.error('Error fetching books:', error);
+        document.getElementById('booksDisplay').innerHTML = 
+            '<div class="alert alert-danger">Error loading books. Please try again later.</div>';
     }
 }
 
